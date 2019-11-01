@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <title>Document</title>
+</head>
+<body>
+    <style>.red {color: red;}</style>
+	<input type="text" name="name" id="name_input" value="Xxxx">
+
+</body>
+</html>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.25.0/babel.min.js"></script>
+<script>
+    
+    // 1 задание
+	const input = document.querySelector("#name_input");
+	const valueInput = input.value;
+	input.oninput = function () {
+	input.className = "";
+	if (valueInput != input.value) {
+	input.className = "red"
+	}
+	};
+	
+	// 3 задание
+	const promise1 = fetch('https://jsonplaceholder.typicode.com/todos/1')
+  .then(response => response.json())
+  .then(json => console.log(json.title))
+
+  const promise2 = fetch('https://jsonplaceholder.typicode.com/todos/2')
+  .then(response => response.json())
+  .then(json => console.log(json.title))
+
+	Promise.all([promise1, promise2])
+	  .then(() => console.log("tne ehd"))
+</script>
